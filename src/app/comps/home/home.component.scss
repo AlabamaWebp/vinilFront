@@ -1,0 +1,15 @@
+@import "../../styles/vars.scss";
+.body {
+    background-image: url(../../../assets/fon1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.article1 {
+    margin: 100px 0;
+    background-color: $second;
+    width: 100%;
+    padding: 1px 30px;
+    font-size: 18px;
+    span {font-size: 20px;}
+}

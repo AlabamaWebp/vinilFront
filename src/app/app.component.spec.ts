@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'vinilFront' title`, () => {
+  it(`should have the 'vinilF' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('vinilFront');
+    expect(app.title).toEqual('vinilF');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, vinilFront');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, vinilF');
   });
 });
