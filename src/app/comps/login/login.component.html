@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <div class="window">
+        <div class="img"></div>
+        <div class="cont">
+            <div class='center'>
+                <h2>Вход</h2>
+                <p>
+                    Мы рады видеть вас в «Импрессия», пожалуйста осуществите вход в ваш личный кабинет
+                </p>
+            </div>
+            <div>
+                <input type="text" placeholder="Логин: "  (change)="login = inp1.value" #inp1>
+                <input type="text" placeholder="Пароль: " (change)="password = inp2.value" #inp2>
+            </div>
+            <button class="button1" (click)="clickLogin()">
+                Войти
+            </button>
+        </div>
+    </div>
+</div>

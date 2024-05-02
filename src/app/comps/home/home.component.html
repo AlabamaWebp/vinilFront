@@ -1,7 +1,7 @@
 <div class="wrapper">
     <app-header></app-header>
     <div class="body">
-        <div class="article1">
+        <div class="article1 article">
             <p>
                 <span>О нас</span><br>
                 Наш магазин - это уникальное место, где можно насладиться настоящим звуком и особой атмосферой.
@@ -13,6 +13,17 @@
             <p>
                 Прикоснитесь к истории звука и найдите свою мелодию.
             </p>
+        </div>
+        <div class="article2 article">
+            <p>Каталог</p>
+            <div class="flex catalog">
+                @for (item of catalog; track $index) {
+                    <div class="item">
+                        <div class="img" [style.backgroundImage]="'url(../../../assets/' + item.img + ')'"></div>
+                        <div class="name">{{item.name}}</div>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>

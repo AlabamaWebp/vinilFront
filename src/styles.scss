@@ -1,9 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./app/styles/vars.scss";
 * {box-sizing: border-box;}
 body, html {
     margin: 0;
     height: 100%;
+    overflow: hidden;
+    font-size: 18px;
     // overflow: hidden;
+}
+input {
+    outline: none;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid $main;
 }
 .flex {
     display: flex;
@@ -12,10 +21,40 @@ body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: $main;
     app-header {
         flex: 0 0 auto;
     }
     .body {
         flex: 1 1 100%;
+        overflow: auto;
     }
+}
+.window {
+    padding: 10px;
+    background-color: $second;
+    display: flex;
+}
+.button1 {
+    border-radius: 0;
+    background-color: $main;
+    color: #000;
+    border: none;
+    padding: 10px;
+    transition: .2s;
+    font-size: 18px;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 0 2px rgba(0, 0, 0, 0.4);
+    }
+    &:active {
+        transform: unset;
+        box-shadow: unset;
+    }
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

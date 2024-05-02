@@ -7,9 +7,31 @@
 }
 .article1 {
     margin: 100px 0;
+}
+.article {
     background-color: $second;
     width: 100%;
     padding: 1px 30px;
     font-size: 18px;
     span {font-size: 20px;}
+}
+.catalog {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px 10px;
+    .item {
+        .img {
+            $size: 150px;
+            width: $size;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+    .name {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 5px 0 0;
+    }
 }
