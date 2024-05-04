@@ -1,20 +1,48 @@
 <div class="wrapper center">
     <div class="window">
-        <div class="img"></div>
+        <div class="img1 img "></div>
         <div class="cont">
             <div class='center'>
                 <h2>Вход</h2>
+                <span>Нет аккаунта? <span class="click" (click)="isReg(true)">Регистрация</span></span>
                 <p>
                     Мы рады видеть вас в «Импрессия», пожалуйста осуществите вход в ваш личный кабинет
                 </p>
             </div>
             <div>
-                <input type="text" placeholder="Логин: "  (change)="login = inp1.value" #inp1>
+                <input type="text" placeholder="Логин: " (change)="login = inp1.value" #inp1>
                 <input type="text" placeholder="Пароль: " (change)="password = inp2.value" #inp2>
             </div>
-            <button class="button1" (click)="clickLogin()">
-                Войти
-            </button>
+            <div class="w100">
+                <button class="button1" (click)="clickLogin()">
+                    Войти
+                </button>
+            </div>
+        </div>
+
+
+        <div class="absoluteWindow window" [class.open]="is_reg">
+            <div class="cont ">
+                <div class='center'>
+                    <h2>Регистрация</h2>
+                    <span>Уже есть аккаунт? <span class="click" (click)="isReg(false)">Войти</span></span>
+                    <p>
+                        «Импрессия» рада видеть новых любителей виниловых пластинок
+                    </p>
+                </div>
+                <div>
+                    <input type="text" placeholder="Фио: ">
+                    <input type="text" placeholder="Телефон: ">
+                    <input type="text" placeholder="Страна: ">
+                    <input type="text" placeholder="Город: ">
+                    <input type="text" placeholder="Пароль: ">
+                    <input type="text" placeholder="Повторите пароль: ">
+                </div>
+                <button class="button1" (click)="clickLogin()">
+                    Зарегистрироваться
+                </button>
+            </div>
+            <div class="img2 img"></div>
         </div>
     </div>
 </div>

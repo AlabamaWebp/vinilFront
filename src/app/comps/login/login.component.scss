@@ -1,3 +1,19 @@
-.img {
+@import "../../styles/vars.scss";
+.img1 {
     background-image: url('../../../assets/login.jpg');
+}
+.img2 {
+    background-image: url(../../../assets/reg.jpg);
+}
+.absoluteWindow {
+    position: absolute;
+    top: -100%;
+    left: 0%;
+    transition: .5s;
+    &.open {top: 0;}
+}
+.click {
+    text-decoration: underline;
+    color: $a;
+    cursor: pointer;
 }

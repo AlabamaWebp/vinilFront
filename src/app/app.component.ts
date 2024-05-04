@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './comps/header/header.component';
 import { FooterComponent } from './comps/footer/footer.component';
 
@@ -12,5 +12,17 @@ import { FooterComponent } from './comps/footer/footer.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  
+  hf = true;
+  constructor(router: Router) {
+    router.events.subscribe((ev: any) => {
+      if (router.url) {
+        const url = router.url;
+        const tabu = ["login", "signin"]
+        if (tabu.includes(url.replace('/','')))
+          this.hf = false;
+        else this.hf = true;
+      }
+
+    })
+  }
 }

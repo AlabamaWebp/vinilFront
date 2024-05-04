@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  is_reg: boolean = false;
+  isReg(bool: boolean) {
+    this.is_reg = bool;
+  }
+
   login: string = ''
   password: string = ''
 
@@ -17,4 +23,5 @@ export class LoginComponent {
       this.password
     );
   }
+
 }
