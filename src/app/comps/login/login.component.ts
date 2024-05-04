@@ -16,6 +16,5 @@ export class LoginComponent {
       this.login,
       this.password
     );
-    
   }
 }

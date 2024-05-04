@@ -2,12 +2,15 @@
 .header {
     width: 100%;
     // height: 60px;
+    position: sticky;
+    top: 0;left: 0;
     background-color: $main;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
     padding: 5px 20px;
+    z-index: 3;
     .logo {
         // background-image: url(../../../assets/logo.png);
         img {
@@ -28,7 +31,7 @@
     transition: .2s;
     user-select: none;
     &:hover {
-        transform: translateY(-2px);
+        // transform: translateY(-2px);
         color: #fff;
         text-shadow: 0 1px 0 black;
     }

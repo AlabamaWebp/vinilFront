@@ -1,8 +1,8 @@
 <div class="wrapper">
-    <app-header></app-header>
     <div class="body">
-        <div class="article1 article">
-            <p>
+        <div class="img1 bgi"></div>
+        <div class="article">
+            <p style="margin-top: 5px;">
                 <span>О нас</span><br>
                 Наш магазин - это уникальное место, где можно насладиться настоящим звуком и особой атмосферой.
             </p>
@@ -10,12 +10,15 @@
                 Только здесь оживает музыка. Здесь время замедляется подтреск иглы.<br>
                 Классика и рок, джаз и электроника , инди и многое другое - каждая пластинка - портал в мир эмоций.
             </p>
-            <p>
+            <p style="margin-bottom: 5px;">
                 Прикоснитесь к истории звука и найдите свою мелодию.
             </p>
         </div>
-        <div class="article2 article">
-            <p>Каталог</p>
+        <div class="img2 bgi"></div>
+        <div class="article">
+            <div class="header">
+                Каталог
+            </div>
             <div class="flex catalog">
                 @for (item of catalog; track $index) {
                     <div class="item">
@@ -24,6 +27,12 @@
                     </div>
                 }
             </div>
+        </div>
+        <div class="img3 bgi"></div>
+        <div class="article">
+            <div class="header">Контакты</div>
+            <div class="line"> <div class="icon gps"></div> Россия, Республика Марий Эл <br>г.Йошкар-Ола</div>
+            <div class="line"> <div class="icon convert"></div>{{'vikylyamorozova05@gmail.com'}}</div>
         </div>
     </div>
 </div>

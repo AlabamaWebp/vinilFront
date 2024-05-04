@@ -1,12 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/styles/vars.scss";
+@import "./app/styles/fromLogin.scss";
 * {box-sizing: border-box;}
-body, html {
+@font-face {
+    font-family: "Times New Roman";
+    src: url("./fonts/ofont.ru_Times\ New\ Roman.ttf");
+}
+body {
+    font-family: "Times New Roman", Times, serif;
+}
+body, html, app-root {
     margin: 0;
     height: 100%;
-    overflow: hidden;
-    font-size: 18px;
-    // overflow: hidden;
+    display: block;
+    font-size: 17px;
 }
 input {
     outline: none;
@@ -16,6 +23,12 @@ input {
 }
 .flex {
     display: flex;
+}
+.jcsb {
+    display: flex;justify-content: space-between;
+}
+.w100 {
+    width: 100%;
 }
 .wrapper {
     height: 100%;
@@ -43,9 +56,10 @@ input {
     padding: 10px;
     transition: .2s;
     font-size: 18px;
+    cursor: pointer;
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 2px 0 2px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 2px 0 2px rgba(0, 0, 0, 0.2);
     }
     &:active {
         transform: unset;

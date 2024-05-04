@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './registration.component.scss'
 })
 export class RegistrationComponent {
+  login: string = ''
+  password: string = ''
 
+  clickLogin() {
+    console.log(
+      this.login,
+      this.password
+    );
+  }
 }

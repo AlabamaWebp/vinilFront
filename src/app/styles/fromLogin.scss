@@ -1,0 +1,23 @@
+.window {
+    .img {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 400px;
+    }
+    .cont {
+        width: 300px;
+        display: flex;flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        h2 {
+            font-weight: normal;
+        }
+        p {text-align: center;}
+        input, button {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+}
