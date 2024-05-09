@@ -1,13 +1,16 @@
 @import "../../styles/vars.scss";
+$catalog: #e6c3aa;
 .wrapper {
     background-color: $second;
+    .main {
+        display: flex;
+    }
 }
 .navigation {
-    margin: 20px;
     .nav_item {
         display: flex;
         align-items: center;
-        width: max-content;
+        width: 100%;
         cursor: pointer;
         .icon {
             background-size: cover;
@@ -15,14 +18,75 @@
             $size: 40px;
             width: $size;
             height: $size;
-            margin: 0 10px 0 0;
+            margin: 0 15px 0 0;
         }
         .text {
             font-size: 20px;
         }
-        &.checked {
-            .text {
-                text-decoration: underline;
+        // &.checked {
+        //     .text {
+        //         text-decoration: underline;
+        //     }
+        // }
+    }
+    margin: 20px;
+    background-color: $main;
+    padding: 0px 20px 20px;
+    border-radius: 10px;
+    transition: .2s;
+    position: sticky;
+    top: 105px;
+    height: max-content;
+    // width: 250px;
+    flex: 1 1 270px;
+}
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    margin: 0 0 30px;
+
+    .item {
+        width: 200px;
+        height: 240px;
+        // border: 1px solid black;
+        $pad: 15px;
+        margin: 15px;
+        cursor: pointer;
+        padding:  $pad;
+        box-sizing: content-box;
+        background-color: $catalog;
+        border-radius: 10px;
+        position: relative;
+        .img {
+            width: 100%;
+            height: 200px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(0, 0, 0, 0);
+            transition: .1s;
+        }
+        .name {
+            font-size: 20px;
+            text-align: center;
+            width: 100%;
+            margin: 10px 0 0 ;
+        }
+        .desc {
+            display: none;
+        }
+        // .hover {
+        //     width: 100%;
+        //     height: 100%;
+        //     border-radius: 10px;
+        //     background-color: $catalog;
+        // }
+        &:hover {
+            .img {
+                color: black;
+                border: 1px solid rgba(0, 0, 0, 0);
             }
         }
     }

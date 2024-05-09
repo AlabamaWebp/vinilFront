@@ -1,16 +1,25 @@
 <div class="wrapper">
-    <div class="catalog">
+    <div class="main">
         <div class="navigation">
             <h3>Каталог</h3>
-            @for (item of catalog_nav; track $index) {
-                <div class="nav_item" [class.checked]="current_nav == item">
+            @for (item of nav; track $index) {
+                <div class="nav_item" [class.checked]="current_nav == item"
+                (click)="selectNav(item)">
                     <div class="icon" [style.backgroundImage]="'url(../../../assets/catalog/icons/' + item.icon + ')'"></div>
-                    <span class="text">{{item.name}}</span>
+                    <span class="text underline" [class.underline2]="current_nav == item" >{{item.name}}</span>
                 </div>
             }
         </div>
-        <div class="items">
-
+        <div class="catalog">
+            @for (item of catalog; track $index) {
+                <div class="item">
+                    <div class="hover">
+                        <div class="img">{{item.desc}}</div>
+                        <div class="name">{{item.name}}</div>
+                        <!-- <div class="desc">{{item.desc}}</div> -->
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>
