@@ -8,6 +8,7 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
   catalog: {
     name: string,
     img: string,

@@ -4,6 +4,7 @@
     display: flex;
     position: relative;
     overflow: hidden;
+    &:not(.absoluteWindow) {margin: 20px;}
     .img {
         background-position: center;
         background-size: cover;
