@@ -91,3 +91,32 @@ $catalog: #e6c3aa;
         }
     }
 }
+.img1 {
+    width: 100%;
+    height: 400px;
+    background-image: url('../../../assets/catalog/fon11.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.citat1 {
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    font-style: italic;
+    font-weight: bold;
+    .dvig {
+        font-weight: normal;
+        position: relative;
+        top: 25px;
+        right: 30px;
+    }
+    // span {
+    //     padding: 5px;
+    //     border-radius: 5px;
+    //     background-color: #fff;
+
+    // }
+}
