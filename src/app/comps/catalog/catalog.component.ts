@@ -35,7 +35,6 @@ export class CatalogComponent {
   selectNav(item: nav_item) {
     this.current_nav = item;
   }
-
   ngOnInit() {
     for (let i = 0; i < 10; i++) {
       this.catalog[i] = {
