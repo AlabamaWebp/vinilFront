@@ -1,0 +1,29 @@
+@import "../../styles/vars.scss";
+.wrapper {
+    background-color: $second;
+}
+.navigation {
+    margin: 20px;
+    .nav_item {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        cursor: pointer;
+        .icon {
+            background-size: cover;
+            background-position: center;
+            $size: 40px;
+            width: $size;
+            height: $size;
+            margin: 0 10px 0 0;
+        }
+        .text {
+            font-size: 20px;
+        }
+        &.checked {
+            .text {
+                text-decoration: underline;
+            }
+        }
+    }
+}

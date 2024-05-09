@@ -1,4 +1,9 @@
 .wrapper_main {
     height: 100%;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    .body {
+        flex: 1 1 100%;
+    }
 }

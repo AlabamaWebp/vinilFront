@@ -22,7 +22,7 @@
             <div class="flex catalog">
                 @for (item of catalog; track $index) {
                     <div class="item">
-                        <div class="img" [style.backgroundImage]="'url(../../../assets/' + item.img + ')'"></div>
+                        <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/home/' + item.img + ')'"></div>
                         <div class="name">{{item.name}}</div>
                     </div>
                 }

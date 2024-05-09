@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <div class="catalog">
+        <div class="navigation">
+            <h3>Каталог</h3>
+            @for (item of catalog_nav; track $index) {
+                <div class="nav_item" [class.checked]="current_nav == item">
+                    <div class="icon" [style.backgroundImage]="'url(../../../assets/catalog/icons/' + item.icon + ')'"></div>
+                    <span class="text">{{item.name}}</span>
+                </div>
+            }
+        </div>
+        <div class="items">
+
+        </div>
+    </div>
+</div>

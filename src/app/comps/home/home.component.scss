@@ -41,17 +41,16 @@
     display: flex;
     justify-content: space-between;
     padding: 0 10px 10px;
-
     .item {
         .img {
-            $size: 150px;
+            $size: 200px;
             width: $size;
-            height: 100px;
+            height: 150px;
             background-size: cover;
             background-position: center;
         }
+        cursor: pointer;
     }
-
     .name {
         display: flex;
         justify-content: center;

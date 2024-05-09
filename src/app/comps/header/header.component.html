@@ -1,10 +1,10 @@
 <div class="header">
     <div class="flex">
-        <div class="logo"><img src="../../../assets/logo2.png" alt=""></div>
-        <h1>«Импрессия»</h1>
+        <div (click)="go('home')" class="logo"><img src="../../../assets/logo2.png" alt=""></div>
+        <h1 (click)="go('home')">«Импрессия»</h1>
     </div>
     <div class="flex">
-        <div class="hButton" >Каталог</div>
+        <div class="hButton" (click)="go('catalog')">Каталог</div>
         <div class="hButton" (click)="goLogin()">Личный кабинет</div>
         <div class="hButton" >Избранное</div>
         <div class="hButton" >Корзина</div>

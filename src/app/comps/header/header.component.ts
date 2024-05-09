@@ -13,4 +13,7 @@ export class HeaderComponent {
   goLogin() {
     this.router.navigate(["login"]);
   }
+  go(str: string) {
+    this.router.navigate([str]);
+  }
 }

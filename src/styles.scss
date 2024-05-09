@@ -6,6 +6,11 @@
     font-family: "Times New Roman";
     src: url("./fonts/ofont.ru_Times\ New\ Roman.ttf");
 }
+app-header {
+    position: sticky;
+    top: 0;left: 0;
+    z-index: 3;
+}
 body {
     font-family: "Times New Roman", Times, serif;
 }
