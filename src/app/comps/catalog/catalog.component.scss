@@ -1,17 +1,21 @@
 @import "../../styles/vars.scss";
 $catalog: #e6c3aa;
+
 .wrapper {
     background-color: $second;
+
     .main {
         display: flex;
     }
 }
+
 .navigation {
     .nav_item {
         display: flex;
         align-items: center;
         width: 100%;
         cursor: pointer;
+
         .icon {
             background-size: cover;
             background-position: center;
@@ -20,15 +24,18 @@ $catalog: #e6c3aa;
             height: $size;
             margin: 0 15px 0 0;
         }
+
         .text {
             font-size: 20px;
         }
+
         // &.checked {
         //     .text {
         //         text-decoration: underline;
         //     }
         // }
     }
+
     margin: 20px;
     background-color: $main;
     padding: 0px 20px 20px;
@@ -40,57 +47,119 @@ $catalog: #e6c3aa;
     // width: 250px;
     flex: 1 1 270px;
 }
+
 .catalog {
     display: flex;
     flex-wrap: wrap;
     flex: 1 1 100%;
     margin: 0 0 30px;
-
+    * {
+        transition: all .35s ease-in-out;
+    }
     .item {
-        width: 200px;
-        height: 240px;
+        width: 210px;
+        height: 300px;
         // border: 1px solid black;
         $pad: 15px;
         margin: 15px;
         cursor: pointer;
-        padding:  $pad;
+        padding: $pad;
         box-sizing: content-box;
         background-color: $catalog;
         border-radius: 10px;
         position: relative;
+
         .img {
             width: 100%;
-            height: 200px;
+            height: 210px;
             border: 1px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
             color: rgba(0, 0, 0, 0);
-            transition: .1s;
+            background-position: center;
+            background-size: cover;
         }
+
         .name {
             font-size: 20px;
             text-align: center;
             width: 100%;
-            margin: 10px 0 0 ;
+            margin: 10px 0 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
         .desc {
-            display: none;
+            // display: none;
+            position: absolute;
+            top: 95%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            font-size: 17px;
+            background-color: $catalog;
+            .hr {
+                width: 50px;
+                height: 5px;
+                background-color: $main;
+                margin: 0 0 10px;
+            }
         }
-        // .hover {
-        //     width: 100%;
-        //     height: 100%;
-        //     border-radius: 10px;
-        //     background-color: $catalog;
-        // }
+
+        .hover {
+            // width: 100%;
+            // height: 100%;
+            border-radius: 10px;
+            background-color: $catalog;
+            position: absolute;
+            padding: $pad;
+            box-sizing: border-box;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0);
+            overflow: hidden;
+        }
+
         &:hover {
-            .img {
-                color: black;
-                border: 1px solid rgba(0, 0, 0, 0);
+
+            // .img {
+            //     color: black;
+            //     border: 1px solid rgba(0, 0, 0, 0);
+            // }
+            .hover {
+                position: absolute;
+                $translate: 20px;
+                width: auto;
+                height: auto;
+                padding: 20px;
+                right: $translate * -1;
+                bottom: $translate * -1;
+                top: $translate * -1;
+                left: $translate * -1;
+                border-radius: 10px;
+                background-color: $catalog;
+                box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.349);
+
+                .desc {
+                    padding: $pad;
+                    overflow: auto;
+                    box-sizing: border-box;
+                    top: 0;
+                }
+
+                // .desc {display: block; transition: none; width: 230px;}
+                // .name, .img {display: none;}
             }
         }
     }
 }
+
 .img1 {
     width: 100%;
     height: 400px;
@@ -98,6 +167,7 @@ $catalog: #e6c3aa;
     background-position: center;
     background-size: cover;
     position: relative;
+
     .citat1 {
         position: absolute;
         left: 10%;
@@ -105,6 +175,7 @@ $catalog: #e6c3aa;
         font-size: 28px;
         font-style: italic;
         font-weight: bold;
+
         .dvig {
             font-weight: normal;
             position: relative;
@@ -112,15 +183,20 @@ $catalog: #e6c3aa;
             right: 30px;
         }
     }
+
     .citat2 {
-        span, li {
+
+        span,
+        li {
             font-size: 22px !important;
             line-height: 1.3;
         }
+
         position: absolute;
         bottom: 10px;
         left: 10%;
     }
+
     .citat3 {
         position: absolute;
         bottom: 10px;

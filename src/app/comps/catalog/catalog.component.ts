@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { CorsService } from '../../services/cors.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [],
+  imports: [HttpClientModule],
+  providers: [HttpClientModule],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.scss'
 })
@@ -34,19 +37,21 @@ export class CatalogComponent {
   current_nav = this.nav[0];
   selectNav(item: nav_item) {
     this.current_nav = item;
+    this.refreshCatalog();
   }
+  constructor(private cors: CorsService) { }
   ngOnInit() {
-    for (let i = 0; i < 10; i++) {
-      this.catalog[i] = {
-        name: "test",
-        img: "test",
-        desc: " Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur minima delectus, impedit expedita, at nobis maiores autem a voluptate, doloribus dicta fugiat aliquid consequuntur? Numquam, dolorum est! Atque, molestiae voluptas?",
-      }
-    }
+    this.refreshCatalog();
   }
-  catalog: catalog_item[] = [
-
-  ]
+  refreshCatalog() {
+    this.cors.getProducts(this.current_nav.name).subscribe(el => {
+      this.catalog = el.map(e => {
+        e.img = e.images[0].img;
+        return e;
+      })
+    })
+  }
+  catalog: catalog_item[] = []
 }
 
 interface nav_item {
@@ -55,5 +60,5 @@ interface nav_item {
 interface catalog_item {
   name: string,
   img: string,
-  desc: string
+  hover: string
 }

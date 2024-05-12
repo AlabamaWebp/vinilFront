@@ -37,9 +37,14 @@
             @for (item of catalog; track $index) {
                 <div class="item">
                     <div class="hover">
-                        <div class="img">{{item.desc}}</div>
+                        <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'"></div>
                         <div class="name">{{item.name}}</div>
-                        <!-- <div class="desc">{{item.desc}}</div> -->
+                        <div class="desc">
+                            <div class="center">
+                                <div class="hr"></div>
+                            </div>
+                            {{item.hover}}
+                        </div>
                     </div>
                 </div>
             }
