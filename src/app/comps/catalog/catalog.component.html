@@ -35,7 +35,7 @@
         </div>
         <div class="catalog">
             @for (item of catalog; track $index) {
-            <div class="item">
+            <div class="item" (click)="go(item.id)">
                 <div class="hover">
                     <div class="img"
                         [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'"></div>

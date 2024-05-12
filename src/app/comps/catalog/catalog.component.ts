@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CorsService } from '../../services/cors.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -39,7 +40,7 @@ export class CatalogComponent {
     this.current_nav = item;
     this.refreshCatalog();
   }
-  constructor(private cors: CorsService) { }
+  constructor(private cors: CorsService, private router: Router) { }
   ngOnInit() {
     this.refreshCatalog();
   }
@@ -52,12 +53,17 @@ export class CatalogComponent {
     })
   }
   catalog: catalog_item[] = []
+
+  go(str: number) {
+    this.router.navigate(["catalog/"+str]);
+  }
 }
 
 interface nav_item {
   name: string, icon: string
 }
 interface catalog_item {
+  id: number
   name: string,
   img: string,
   hover: string
