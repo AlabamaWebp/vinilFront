@@ -26,27 +26,28 @@
         <div class="navigation">
             <h3>Каталог</h3>
             @for (item of nav; track $index) {
-                <div class="nav_item" [class.checked]="current_nav == item"
-                (click)="selectNav(item)">
-                    <div class="icon" [style.backgroundImage]="'url(../../../assets/catalog/icons/' + item.icon + ')'"></div>
-                    <span class="text underline" [class.underline2]="current_nav == item" >{{item.name}}</span>
+            <div class="nav_item" [class.checked]="current_nav == item" (click)="selectNav(item)">
+                <div class="icon" [style.backgroundImage]="'url(../../../assets/catalog/icons/' + item.icon + ')'">
                 </div>
+                <span class="text underline" [class.underline2]="current_nav == item">{{item.name}}</span>
+            </div>
             }
         </div>
         <div class="catalog">
             @for (item of catalog; track $index) {
-                <div class="item">
-                    <div class="hover">
-                        <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'"></div>
-                        <div class="name">{{item.name}}</div>
-                        <div class="desc">
-                            <div class="center">
-                                <div class="hr"></div>
-                            </div>
-                            {{item.hover}}
+            <div class="item">
+                <div class="hover">
+                    <div class="img"
+                        [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'"></div>
+                    <div class="name">{{item.name}}</div>
+                    <div class="desc">
+                        <div class="center">
+                            <div class="hr"></div>
                         </div>
+                        {{item.hover}}
                     </div>
                 </div>
+            </div>
             }
         </div>
     </div>

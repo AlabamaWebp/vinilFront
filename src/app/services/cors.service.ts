@@ -15,7 +15,7 @@ export class CorsService {
   }
 
   getProductById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/database/products/${this.login}/${id}`).pipe(catchError(this.handleError));
+    return this.http.get<any>(`${this.apiUrl}/database/product/${this.login}/${id}`).pipe(catchError(this.handleError));
   }
 
   getOrderByStatus(status: number): Observable<any> {

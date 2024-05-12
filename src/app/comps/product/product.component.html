@@ -1,0 +1,39 @@
+<div class="wrapper center">
+    @if (data) {
+    <div class="side image_side">
+        <div class="image">
+            <img [src]="'../../../assets/catalog/products/'+selected_image+'.jpg'" class="square-crop">
+            <div class="select">
+                @for (item of data.images; track $index) {
+                    <div class="select_img hover_tr" (click)="selectImage(item)"
+                    [style.backgroundImage]="'url(../../../assets/catalog/products/' + item + '.jpg)'"></div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="side">
+        <h2>{{data.name}}</h2>
+        <div class="button_line">
+            <button class="button3">
+                В корзину
+            </button>
+            <button class="button2">
+                В избранное
+            </button>
+        </div>
+        <div class="price">Цена: {{data.price}} руб.</div>
+        <p class="hover">{{data.hover}}</p>
+        <p class="full">{{data.full}}</p>
+    </div>
+    }
+    @else if (error) {
+        <h1>
+            Ошибка
+        </h1>
+    }
+    @else {
+        <h1>
+            Загрузка...
+        </h1>
+    }
+</div>

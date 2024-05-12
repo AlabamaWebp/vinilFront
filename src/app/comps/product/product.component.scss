@@ -1,0 +1,55 @@
+@import "../../styles/vars.scss";
+
+.wrapper {
+    background-color: $second;
+    flex-direction: row;
+    white-space: pre-wrap;
+    display: flex;
+    width: 100%;
+    margin: 0 0 100px;
+    .side {
+        flex: 0 0 50%;
+        height: 100%;
+        font-size: 18px;
+        padding: 10px;
+        .button_line {
+            margin: 0 0 20px;
+        }
+        h2 {
+            font-size: 30px;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+    }
+}
+.image_side {
+    padding: 40px 10% !important;
+    box-sizing: border-box;
+    .image {
+        .square-crop {
+            width: 100%;
+            object-fit: cover; /* Команда обрезки с сохранением пропорций */
+            // box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.199);
+            border-radius: 10px;
+            border: 5px solid $catalog;
+        }
+        .select {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            margin: 50px 0;
+            .select_img {
+                $size: 150px;
+                width: $size;height: $size;
+                background-position: center;
+                background-size: cover;
+                margin: 0 30px;
+                border-radius: 10px;
+                border: 5px solid $catalog;
+                box-shadow: none !important;
+            }
+        }
+    }
+}
