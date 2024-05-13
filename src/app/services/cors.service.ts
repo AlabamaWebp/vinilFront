@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
+import { registration } from '../comps/login/login.component';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,23 @@ export class CorsService {
   deleteOrderByStatus(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/database/deleteOrderByStatus/${id}`).pipe(catchError(this.handleError));
   }
+
+
+
+
+  createAccount(user: registration): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/noauth/createAccount`, user);
+  }
+
+  checkLogin(login: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/noauth/checkLogin/${login}`);
+  }
+
+  logIn(login: string, password: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/noauth/login/${login}/${password}`);
+  }
+
+
 
   private handleError(error: any): Observable<any> {
     console.error('An error occurred', error);

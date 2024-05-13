@@ -11,8 +11,8 @@
                 </p>
             </div>
             <div>
-                <input type="text" placeholder="Логин: " (change)="login = inp1.value" #inp1>
-                <input type="text" placeholder="Пароль: " (change)="password = inp2.value" #inp2>
+                <input type="text" placeholder="Логин: " id="login">
+                <input type="text" placeholder="Пароль: " id="password">
             </div>
             <div class="w100">
                 <button class="button1" (click)="clickLogin()">
@@ -31,19 +31,23 @@
                     </p>
                 </div>
                 <div>
-                    <input type="text" placeholder="Фио: ">
-                    <input type="text" placeholder="Телефон: ">
-                    <input type="text" placeholder="Страна: ">
-                    <input type="text" placeholder="Город: ">
-                    <input type="text" placeholder="Логин: ">
-                    <input type="text" placeholder="Пароль: ">
-                    <input type="text" placeholder="Повторите пароль: ">
+                    <input type="text" placeholder="Фио: " id="fio">
+                    <input type="text" placeholder="Телефон: " id="tel">
+                    <input type="text" placeholder="Страна: " id="country">
+                    <input type="text" placeholder="Город: " id="city">
+                    <input type="text" placeholder="Логин: " id="login1" (change)="checkLogin()">
+                    <input type="text" placeholder="Пароль: " id="pass" (input)="checkPassword()">
+                    <input type="text" placeholder="Повторите пароль: " id="pass2" (input)="checkPassword()">
                 </div>
-                <button class="button1" (click)="clickLogin()">
+                <button class="button1" (click)="clickLogin()" [disabled]="blockButton()">
                     Зарегистрироваться
                 </button>
             </div>
             <div class="img2 img"></div>
         </div>
     </div>
+</div>
+<div class="errors">
+    @if (login_error) { <div class="error">Такой логин уже существует</div> }
+    @if (pass_error) { <div class="error">пароли не совпадают</div> }
 </div>

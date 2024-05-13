@@ -56,17 +56,19 @@ input {
     padding: 10px;
 }
 .button2, .button3, .button1 {
-    color: #000;
     font-size: 18px;
     transition: .2s;
-    cursor: pointer;
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 2px 0 2px rgba(0, 0, 0, 0.2);
-    }
-    &:active {
-        transform: translateY(2px);
-        box-shadow: unset;
+    &:not([disabled]) {
+        color: #000;
+        cursor: pointer;
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 0 2px rgba(0, 0, 0, 0.2);
+        }
+        &:active {
+            transform: translateY(2px);
+            box-shadow: unset;
+        }
     }
 }
 .hover_tr {
