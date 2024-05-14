@@ -2,6 +2,7 @@
 @import "./app/styles/vars.scss";
 @import "./app/styles/fromLogin.scss";
 @import "./app/styles/underline.scss";
+@import "./app/styles/catalog.scss";
 * {box-sizing: border-box;}
 @font-face {
     font-family: "Times New Roman";
@@ -41,6 +42,7 @@ input {
     display: flex;
     flex-direction: column;
     background-color: $main;
+    &.light {background-color: $second;}
     app-header {
         flex: 0 0 auto;
     }

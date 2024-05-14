@@ -14,11 +14,11 @@
     <div class="side">
         <h2>{{data.name}}</h2>
         <div class="button_line">
-            <button class="button3">
-                В корзину
+            <button class="button3" (click)="clickBascet()" [disabled]="is_load">
+                {{data.in_basket ? 'Убрать из корзины' : 'В корзину'}}
             </button>
-            <button class="button2">
-                В избранное
+            <button class="button2" (click)="clickFavorit()" [disabled]="is_load">
+                {{data.is_favorite ? 'Убрать из избранного' : 'В избранное'}}
             </button>
         </div>
         <div class="price">Цена: {{data.price}} руб.</div>

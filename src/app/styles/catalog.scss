@@ -1,0 +1,111 @@
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    margin: 0 0 30px;
+    * {
+        transition: all .35s ease-in-out;
+    }
+    .item {
+        width: 210px;
+        height: 300px;
+        // border: 1px solid black;
+        $pad: 15px;
+        margin: 15px;
+        cursor: pointer;
+        padding: $pad;
+        box-sizing: content-box;
+        background-color: $catalog;
+        border-radius: 10px;
+        position: relative;
+
+        .img {
+            width: 100%;
+            height: 210px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(0, 0, 0, 0);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .name {
+            font-size: 20px;
+            text-align: center;
+            width: 100%;
+            margin: 10px 0 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .desc {
+            // display: none;
+            position: absolute;
+            top: 95%;
+            height: 100%;
+            left: 0;
+            right: 0;
+            font-size: 17px;
+            background-color: $catalog;
+            .hr {
+                width: 50px;
+                height: 5px;
+                background-color: $main;
+                margin: 0 0 10px;
+            }
+        }
+
+        .hover {
+            // width: 100%;
+            // height: 100%;
+            border-radius: 10px;
+            background-color: $catalog;
+            position: absolute;
+            padding: $pad;
+            box-sizing: border-box;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0);
+            overflow: hidden;
+        }
+
+        &:hover {
+
+            // .img {
+            //     color: black;
+            //     border: 1px solid rgba(0, 0, 0, 0);
+            // }
+            .hover {
+                position: absolute;
+                $translate: 20px;
+                width: auto;
+                height: auto;
+                padding: 20px;
+                right: $translate * -1;
+                bottom: $translate * -1;
+                top: $translate * -1;
+                left: $translate * -1;
+                border-radius: 10px;
+                background-color: $catalog;
+                box-shadow: 0px 2px 3px 3px rgba(0, 0, 0, 0.349);
+
+                .desc {
+                    padding: $pad;
+                    overflow: auto;
+                    box-sizing: border-box;
+                    top: 0;
+                }
+
+                // .desc {display: block; transition: none; width: 230px;}
+                // .name, .img {display: none;}
+            }
+        }
+    }
+}

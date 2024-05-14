@@ -1,0 +1,22 @@
+<div class="wrapper light">
+    <div class="catalog">
+        @for (item of catalog; track $index) {
+        <div class="item" (click)="go(item.id)">
+            <div class="hover">
+                <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'">
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="desc">
+                    <div class="center">
+                        <div class="hr"></div>
+                    </div>
+                    {{item.hover}}
+                </div>
+            </div>
+        </div>
+        }
+        @empty {
+            <h3 class="center w100">Избранных нет</h3>
+        }
+    </div>
+</div>

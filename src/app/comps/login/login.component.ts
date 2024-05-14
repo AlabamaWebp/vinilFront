@@ -64,7 +64,7 @@ export class LoginComponent {
   }
   getLogin(i: boolean, str: string) {
     if (i) {
-      this.cors.login = str;
+      this.cors.setLogin = str;
       this.go()
     }
   }

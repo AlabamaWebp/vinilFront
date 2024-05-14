@@ -8,15 +8,26 @@ import { registration } from '../comps/login/login.component';
 })
 export class CorsService {
   private apiUrl = 'http://localhost:3000'; // Замените на адрес вашего Nest.js API
-  login = '1'
+  private _login: string | undefined = localStorage.getItem("login") ?? undefined
+
+  set setLogin(value: string) {
+    this._login = value;
+    localStorage.setItem("login", value)
+  }
+  get login() { return this._login }
+
 
   constructor(private http: HttpClient) { }
   getProducts(sort: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/database/products/${this.login}/${sort}`).pipe(catchError(this.handleError));
+    let href = `${this.apiUrl}/database/products/${sort}`
+    if (this.login) href += '?login=' + this.login
+    return this.http.get<any[]>(href).pipe(catchError(this.handleError));
   }
 
   getProductById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/database/product/${this.login}/${id}`).pipe(catchError(this.handleError));
+    let href = `${this.apiUrl}/database/product/${id}`
+    if (this.login) href += '?login=' + this.login
+    return this.http.get<any>(href).pipe(catchError(this.handleError));
   }
 
   getOrderByStatus(status: number): Observable<any> {
@@ -24,11 +35,15 @@ export class CorsService {
   }
 
   createOrderByStatus(data: { status: number, id: number }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/database/createOrderByStatus/`, { login: this.login, status: data.status, id: data.id }).pipe(catchError(this.handleError));
+    const data1 = { login: this.login, status: data.status, id: data.id }
+    console.log(JSON.stringify(data1));
+    return this.http.post<any>(`${this.apiUrl}/database/createOrderByStatus/`, data1).pipe(catchError(this.handleError));
   }
 
-  deleteOrderByStatus(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/database/deleteOrderByStatus/${id}`).pipe(catchError(this.handleError));
+  deleteOrderByStatus(data: { status: number, id: number }): Observable<any> {
+    const data1 = { login: this.login, status: data.status, id: data.id }
+    console.log(JSON.stringify(data1));
+    return this.http.post<any>(`${this.apiUrl}/database/deleteOrderByStatus/`, data1).pipe(catchError(this.handleError));
   }
 
 
