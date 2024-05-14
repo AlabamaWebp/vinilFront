@@ -17,7 +17,8 @@ export class FavoritesComponent {
   refreshCatalog() {
     this.cors.getOrderByStatus(0).subscribe(el => {
       console.log(el);
-      this.catalog = el.map((e: { img: any; images: { img: any; }[]; }) => {
+      this.catalog = el
+      .map((e: any) => {
         e.img = e.images[0].img;
         return e;
       })

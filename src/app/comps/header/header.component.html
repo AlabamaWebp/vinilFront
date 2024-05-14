@@ -5,8 +5,13 @@
     </div>
     <div class="flex">
         <div class="hButton" (click)="go('catalog')">Каталог</div>
-        <div class="hButton" (click)="goLogin()">Личный кабинет</div>
-        <div class="hButton" (click)="go('favorites')">Избранное</div>
-        <div class="hButton" >Корзина</div>
+        @if (cors.login) {
+            <div class="hButton" (click)="1">Личный кабинет</div>
+            <div class="hButton" (click)="go('favorites')">Избранное</div>
+            <div class="hButton" (click)="1">Корзина</div>
+        }
+        @else {
+            <div class="hButton" (click)="goLogin()">Войти</div>
+        }
     </div>
 </div>
