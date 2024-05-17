@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrl: './order.component.scss'
 })
 export class OrderComponent {
+  
+  
+  tovars: data[] = [];
+  next = true;
+}
 
+interface data {
+  id: number
+  name: string,
+  price: number,
+  img: string,
 }

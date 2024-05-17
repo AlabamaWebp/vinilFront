@@ -1,0 +1,10 @@
+.margin {
+    margin: 10px 10px 10px 0;
+}
+.right {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    button {margin: 3px;}
+}
+label {font-size: 15px;}
