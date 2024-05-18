@@ -30,7 +30,7 @@ export class CorsService {
     return this.http.get<any>(href).pipe(catchError(this.handleError)).pipe(map(el => {
       el.className = el.className.name;
       el.images = el.images.map((el: any) => el.img);
-      return el
+      return el;
     }));
   }
 
