@@ -23,10 +23,10 @@ export class ProductComponent {
     if (this.id) {
       this.is_load = true
       this.cors.getProductById(this.id).subscribe(el => {
-      this.is_load = false
-      el.className = el.className.name
-        el.images = el.images.map((el: any) => el.img);
-
+        this.is_load = false
+        // el.className = el.className.name;
+        // el.images = el.images.map((el: any) => el.img);
+        console.log(el);
         this.data = el;
         this.selected_image = el.images[0]
         // console.log(this.data);
@@ -46,29 +46,29 @@ export class ProductComponent {
   }
 
   clickFavorit() {
-    if (this.data?.is_favorite != undefined) 
+    if (this.data?.is_favorite != undefined)
       this.is_load = true
 
     if (this.data?.is_favorite === false) {
       this.cors.createOrderByStatus({ status: 0, id: this.id as number })
-      .subscribe(this.func, this.err)
+        .subscribe(this.func, this.err)
     }
     else {
       this.cors.deleteOrderByStatus({ status: 0, id: this.id as number })
-      .subscribe(this.func, this.err)
+        .subscribe(this.func, this.err)
     }
   }
   clickBascet() {
-    if (this.data?.is_favorite != undefined) 
+    if (this.data?.is_favorite != undefined)
       this.is_load = true
-    
+
     if (this.data?.in_basket === false) {
       this.cors.createOrderByStatus({ status: 1, id: this.id as number })
-      .subscribe(this.func, this.err)
+        .subscribe(this.func, this.err)
     }
     else {
       this.cors.deleteOrderByStatus({ status: 1, id: this.id as number })
-      .subscribe(this.func, this.err)
+        .subscribe(this.func, this.err)
     }
   }
   func = (el: any) => {

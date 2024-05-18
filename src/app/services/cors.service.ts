@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { registration } from '../comps/login/login.component';
 
 @Injectable({
@@ -27,7 +27,11 @@ export class CorsService {
   getProductById(id: number): Observable<any> {
     let href = `${this.apiUrl}/database/product/${id}`
     if (this.login) href += '?login=' + this.login
-    return this.http.get<any>(href).pipe(catchError(this.handleError));
+    return this.http.get<any>(href).pipe(catchError(this.handleError)).pipe(map(el => {
+      el.className = el.className.name;
+      el.images = el.images.map((el: any) => el.img);
+      return el
+    }));
   }
 
   getOrderByStatus(status: number): Observable<any> {

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CorsService } from '../../services/cors.service';
 
 @Component({
   selector: 'app-order',
@@ -8,10 +10,21 @@ import { Component } from '@angular/core';
   styleUrl: './order.component.scss'
 })
 export class OrderComponent {
-  
-  
-  tovars: data[] = [];
-  next = true;
+  @Input() tovars: data[] = []
+  constructor(private route: ActivatedRoute, private cors: CorsService) {
+    if (!this.tovars.length) {
+      const id = route.snapshot.queryParams['id']
+      if (id) {
+        cors.getProductById(+id).subscribe(el => {
+          el.img = el.images[0]
+          this.tovars = [el]
+        })
+      }
+    }
+  }
+
+  // tovars: data[] = [];
+  next = false;
 }
 
 interface data {
