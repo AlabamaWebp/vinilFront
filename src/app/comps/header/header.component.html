@@ -6,9 +6,9 @@
     <div class="flex">
         <div class="hButton" (click)="go('catalog')">Каталог</div>
         @if (cors.login) {
-            <div class="hButton" (click)="1">Личный кабинет</div>
+            <div class="hButton" (click)="go('account')">Личный кабинет</div>
             <div class="hButton" (click)="go('favorites')">Избранное</div>
-            <div class="hButton" (click)="1">Корзина</div>
+            <div class="hButton" (click)="go('bascet')">Корзина</div>
         }
         @else {
             <div class="hButton" (click)="goLogin()">Войти</div>
