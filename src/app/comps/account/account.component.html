@@ -15,6 +15,26 @@
             <div class="info">Город: {{user.city}}</div>
             <button class="button1" (click)="logout()">Выйти из аккаунта</button>
         </div>
+        <div class="orders">
+            @for (item of orders; track $index) {
+            <div class="order">
+                <h3 class="id">Заказ №{{item.id}}</h3>
+                @for (t of item.product; track $index) {
+                    <div class="tovar" (click)="goTovar(t.id)">
+                        <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/products/' + t.img + '.jpg)'">
+                        </div>
+                        <div class="name">
+                            {{t.name}}
+                        </div>
+                        <div class="price">
+                            {{t.price}} руб.
+                        </div>
+                    </div>
+                }
+            </div>
+
+            }
+        </div>
         }
     </div>
 </div>

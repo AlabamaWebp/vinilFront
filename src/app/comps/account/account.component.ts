@@ -17,12 +17,21 @@ export class AccountComponent {
       this.user = el;
       console.log(this.user);
     });
+    this.cors.getOrder().subscribe(el => {
+      console.log(el);
+      this.orders = el;
+    })
   }
   logout() {
     this.cors.setLogin = undefined
     this.router.navigate(['']);
   }
 
+
+  orders: order[] | undefined
+  goTovar(id: number) {
+    this.router.navigate(['catalog', id])
+  }
 }
 interface user {
   login: string;
@@ -30,4 +39,14 @@ interface user {
   tel: string;
   country: string;
   city: string;
+}
+interface order {
+  id: number,
+  product: product[]
+}
+interface product {
+  id: number
+  name: string,
+  img: string,
+  price: number,
 }

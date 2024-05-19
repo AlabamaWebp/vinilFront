@@ -18,3 +18,32 @@
         line-height: 30px;
     }
 }
+
+.tovar {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+    max-width: 80vw;
+    cursor: pointer;
+    .img {
+        $size: 60px;
+        width: $size;
+        height: $size;
+        background-position: center;
+        margin: 0 10px 0 0;
+        background-size: cover;
+    }
+    .name {
+        margin: 0 10px;
+        font-size: 20px;
+    }
+    .price {
+        font-size: 20px;
+        margin: 0 0 0 10px;
+        font-weight: bold;
+    }
+}

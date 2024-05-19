@@ -87,6 +87,9 @@ export class CorsService {
     return this.http.get<any>(`${this.apiUrl}/database/getUser/${this.login}`);
   }
 
+  getOrder() {
+    return this.http.get<any>(`${this.apiUrl}/database/getOrder/${this.login}`);
+  }
 
 
   private handleError(error: any): Observable<any> {
