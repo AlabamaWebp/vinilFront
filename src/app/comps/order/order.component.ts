@@ -11,18 +11,19 @@ import { CorsService } from '../../services/cors.service';
 })
 export class OrderComponent {
   @Input() tovars: data[] = []
-  constructor(private route: ActivatedRoute, private cors: CorsService) {
+  constructor(private route: ActivatedRoute, private cors: CorsService) {}
+
+  ngOnInit() {
     if (!this.tovars.length) {
-      const id = route.snapshot.queryParams['id']
+      const id = this.route.snapshot.queryParams['id']
       if (id) {
-        cors.getProductById(+id).subscribe(el => {
-          el.img = el.images[0]
+        this.cors.getProductById(+id).subscribe(el => {
+          // el.img = el.images[0]
           this.tovars = [el]
         })
       }
     }
   }
-
   // tovars: data[] = [];
   next = false;
 }

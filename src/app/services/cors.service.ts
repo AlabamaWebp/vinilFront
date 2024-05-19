@@ -32,12 +32,24 @@ export class CorsService {
     return this.http.get<any>(href).pipe(catchError(this.handleError)).pipe(map(el => {
       el.className = el.className.name;
       el.images = el.images.map((el: any) => el.img);
+      el.img = el.images[0];
       return el;
     }));
   }
 
   getOrderByStatus(status: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/database/getOrderByStatus/${this.login}/${status}`).pipe(catchError(this.handleError));
+    return this.http.get<any>(`${this.apiUrl}/database/getOrderByStatus/${this.login}/${status}`).pipe(catchError(this.handleError)).pipe(map(el1 => {
+      console.log(el1);
+      el1 = el1.map((el: any) => {
+        el.className = el.className.name;
+        el.images = el.images.map((el: any) => el.img);
+        el.img = el.images[0];
+        return el;
+      })
+      console.log(el1);
+      
+      return el1;
+    }));
   }
 
   createOrderByStatus(data: { status: number, id: number }): Observable<any> {
@@ -52,7 +64,7 @@ export class CorsService {
     return this.http.post<any>(`${this.apiUrl}/database/deleteOrderByStatus/`, data1).pipe(catchError(this.handleError));
   }
 
-  createOrder(ids: number[] ): Observable<any> {
+  createOrder(ids: number[]): Observable<any> {
     const data1 = { login: this.login, id: ids }
     console.log(JSON.stringify(data1));
     return this.http.post<any>(`${this.apiUrl}/database/createOrder/`, data1).pipe(catchError(this.handleError));
