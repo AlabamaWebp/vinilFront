@@ -1,10 +1,20 @@
 <div class="wrapper light center">
     <div class="form">
+        @if (user) {
         <h2>Личный кабинет</h2>
-        <input type="text" placeholder="Фио: " id="fio">
-        <input type="text" placeholder="Телефон: " id="tel">
-        <input type="text" placeholder="Страна: " id="country">
-        <input type="text" placeholder="Город: " id="city">
-        <button class="button1">Редактировать</button>
+        <!-- <input type="text" placeholder="Фио: " id="fio">
+            <input type="text" placeholder="Телефон: " id="tel">
+            <input type="text" placeholder="Страна: " id="country">
+            <input type="text" placeholder="Город: " id="city">
+            <button class="button1">Редактировать</button> -->
+        <div class="info_cont">
+            <div class="info">Логин: {{user.login}}</div>
+            <div class="info">ФИО: {{user.fio}}</div>
+            <div class="info">Телефон: {{user.tel}}</div>
+            <div class="info">Страна: {{user.country}}</div>
+            <div class="info">Город: {{user.city}}</div>
+            <button class="button1" (click)="logout()">Выйти из аккаунта</button>
+        </div>
+        }
     </div>
 </div>

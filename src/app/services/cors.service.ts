@@ -10,9 +10,11 @@ export class CorsService {
   private apiUrl = 'http://localhost:3000'; // Замените на адрес вашего Nest.js API
   private _login: string | undefined = localStorage.getItem("login") ?? undefined
 
-  set setLogin(value: string) {
+  set setLogin(value: string | undefined) {
     this._login = value;
-    localStorage.setItem("login", value)
+    if (value)
+      localStorage.setItem("login", value)
+    else localStorage.removeItem('login')
   }
   get login() { return this._login }
 
@@ -67,6 +69,10 @@ export class CorsService {
 
   logIn(login: string, password: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiUrl}/noauth/login/${login}/${password}`);
+  }
+
+  getUser() {
+    return this.http.get<any>(`${this.apiUrl}/database/getUser/${this.login}`);
   }
 
 
