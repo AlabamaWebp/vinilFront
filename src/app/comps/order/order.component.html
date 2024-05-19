@@ -3,7 +3,7 @@
         <h2>Оформление заказа</h2>
         @if (!next) {
         @for (item of tovars; track $index) {
-        <div class="flex tovar">
+        <div class="flex tovar" (click)="goTovar(item.id)">
             <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/products/' + item.img + '.jpg)'">
             </div>
             <div class="name">
@@ -17,7 +17,7 @@
         <div>
             <input type="text" placeholder="Адрес" class="w100">
             <div class="margin">
-                <input type="checkbox" id="s">
+                <input type="checkbox" id="s" (change)="soglasie = !soglasie">
                 <label for="s">Я согласен(а) на обработку персоналных данных</label>
             </div>
             <fieldset>
@@ -41,7 +41,7 @@
             </fieldset>
         </div>
         <div class="right margin">
-            <button class="button1" (click)="next = true">
+            <button class="button1" (click)="next = true" [disabled]="!soglasie">
                 К оформлению
             </button>
         </div>
@@ -72,7 +72,7 @@
                     <button class="button1 margin" (click)="next = false">
                         Назад
                     </button>
-                    <button class="button1 margin">
+                    <button class="button1 margin" (click)="oformit()">
                         Офоримить
                     </button>
                 </div>

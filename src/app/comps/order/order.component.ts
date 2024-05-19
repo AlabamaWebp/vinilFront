@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CorsService } from '../../services/cors.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { CorsService } from '../../services/cors.service';
 })
 export class OrderComponent {
   @Input() tovars: data[] = []
-  constructor(private route: ActivatedRoute, private cors: CorsService) {}
+  constructor(private route: ActivatedRoute, private cors: CorsService, private router: Router) {}
 
   ngOnInit() {
     if (!this.tovars.length) {
@@ -25,7 +25,17 @@ export class OrderComponent {
     }
   }
   // tovars: data[] = [];
+  soglasie = false;
   next = false;
+  goTovar(id: number) {
+    this.router.navigate(['catalog', id])
+  }
+  oformit() {
+    this.cors.createOrder(this.tovars.map(el => el.id)).subscribe(el => {
+      console.log(el);
+      this.router.navigate(['account'])
+    })
+  }
 }
 
 interface data {
