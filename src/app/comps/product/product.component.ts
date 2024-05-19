@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CorsService } from '../../services/cors.service';
 
@@ -11,7 +11,7 @@ import { CorsService } from '../../services/cors.service';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
-  constructor(private activateRoute: ActivatedRoute, private cors: CorsService) {
+  constructor(private activateRoute: ActivatedRoute, private cors: CorsService, private router: Router) {
   }
   ngOnInit() {
     this.activateRoute.params.subscribe(params => {
@@ -71,6 +71,10 @@ export class ProductComponent {
         .subscribe(this.func, this.err)
     }
   }
+  orderOne() {
+    this.router.navigate(['order'], { queryParams: { id: this.id } })
+  }
+  
   func = (el: any) => {
     console.log(el);
     this.refreshProduct()

@@ -17,6 +17,9 @@
             <button class="button3" (click)="clickBascet()" [disabled]="is_load">
                 {{data.in_basket ? 'Убрать из корзины' : 'В корзину'}}
             </button>
+            <button class="button3" (click)="orderOne()" [disabled]="is_load">
+                Купить
+            </button>
             <button class="button2" (click)="clickFavorit()" [disabled]="is_load">
                 {{data.is_favorite ? 'Убрать из избранного' : 'В избранное'}}
             </button>
