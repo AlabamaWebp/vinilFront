@@ -1,19 +1,33 @@
 <div class="footer">
     <h3>Мы рады, что вы выбираете нас</h3>
     <div class="flex jcsb w100">
+        @if (cors.login) {
         <ul>
-            <li class="underline">О нас</li>
-            <li class="underline">Каталог</li>
-            <li class="underline">Личный кабинет</li>
+            <li class="underline" (click)="go('home')">О нас</li>
+            <li class="underline" (click)="go('catalog')">Каталог</li>
+            <li class="underline" (click)="go('account')">Личный кабинет</li>
         </ul>
         <div class="center">
             <img src="../../../assets/logo2.png" alt="">
         </div>
         <ul>
-            <li class="underline">Личный кабинет</li>
-            <li class="underline">Избранное</li>
-            <li class="underline">Корзина</li>
+            <li class="underline" (click)="go('account')">Личный кабинет</li>
+            <li class="underline" (click)="go('favorites')">Избранное</li>
+            <li class="underline" (click)="go('basket')">Корзина</li>
         </ul>
+        }
+        @else {
+            <ul>
+                <li class="underline" (click)="go('home')">О нас</li>
+                <li class="underline" (click)="go('catalog')">Каталог</li>
+            </ul>
+            <div class="center">
+                <img src="../../../assets/logo2.png" alt="">
+            </div>
+            <ul>
+                <li class="underline" (click)="go('login')">Личный кабинет</li>
+            </ul>
+        }
     </div>
     <span> © Все права защищены. «Импрессия», 2024</span>
 </div>
