@@ -45,6 +45,18 @@ export class ProductComponent {
     this.selected_image = str;
   }
 
+  clickAnywhere(id: number) {
+    if (this.cors.login) {
+      if (id == 1) 
+        this.clickBascet()
+      else if (id == 2) 
+        this.orderOne()
+      else if (id == 3) 
+        this.clickFavorit()
+    }
+    else this.router.navigate(['login'])
+  }
+
   clickFavorit() {
     if (this.data?.is_favorite != undefined)
       this.is_load = true

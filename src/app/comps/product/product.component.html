@@ -14,13 +14,13 @@
     <div class="side">
         <h2>{{data.name}}</h2>
         <div class="button_line">
-            <button class="button3" (click)="clickBascet()" [disabled]="is_load">
+            <button class="button3" (click)="clickAnywhere(1)" [disabled]="is_load">
                 {{data.in_basket ? 'Убрать из корзины' : 'В корзину'}}
             </button>
-            <button class="button3" (click)="orderOne()" [disabled]="is_load">
+            <button class="button3" (click)="clickAnywhere(2)" [disabled]="is_load">
                 Купить
             </button>
-            <button class="button2" (click)="clickFavorit()" [disabled]="is_load">
+            <button class="button2" (click)="clickAnywhere(3)" [disabled]="is_load">
                 {{data.is_favorite ? 'Убрать из избранного' : 'В избранное'}}
             </button>
         </div>
