@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -40,4 +41,8 @@ export class HomeComponent {
         ref: 'string',
       },
     ]
+  constructor(private router: Router) { }
+  goCatalog(str: string) {
+    this.router.navigate(['catalog',], { queryParams: { filter: str } })
+  }
 }
