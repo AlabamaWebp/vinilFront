@@ -19,9 +19,9 @@
             <div class="header">
                 Каталог
             </div>
-            <div class="flex catalog">
+            <div class="flex catalog1">
                 @for (item of catalog; track $index) {
-                    <div class="item">
+                    <div class="item" (click)="goCatalog(item.name)">
                         <div class="img" [style.backgroundImage]="'url(../../../assets/catalog/home/' + item.img + ')'"></div>
                         <div class="name">{{item.name}}</div>
                     </div>

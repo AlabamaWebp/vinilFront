@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CorsService } from '../../services/cors.service';
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -40,8 +40,11 @@ export class CatalogComponent {
     this.current_nav = item;
     this.refreshCatalog();
   }
-  constructor(private cors: CorsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private cors: CorsService, private router: Router) { }
   ngOnInit() {
+    const id = this.route.snapshot.queryParams['filter']
+    if (id)
+      this.current_nav = this.nav.find(el => el.name == id) ?? this.nav[0];
     this.refreshCatalog();
   }
   refreshCatalog() {
@@ -55,7 +58,7 @@ export class CatalogComponent {
   catalog: catalog_item[] = []
 
   go(str: number) {
-    this.router.navigate(["catalog/"+str]);
+    this.router.navigate(["catalog/" + str]);
   }
 }
 
