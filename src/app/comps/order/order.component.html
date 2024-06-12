@@ -43,7 +43,7 @@
             </fieldset>
         </div>
         <div class="right margin">
-            <button class="button1" (click)="next = true" [disabled]="!soglasie">
+            <button class="button1" (click)="next = true" [disabled]="!soglasie && email && addres && tel">
                 К оформлению
             </button>
         </div>

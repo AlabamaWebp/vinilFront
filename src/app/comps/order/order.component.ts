@@ -40,8 +40,8 @@ export class OrderComponent {
   tel = ""
   sposob = "Почта России"
   oformit() {
+    console.log(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob);
     this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob).subscribe(el => {
-      console.log(el);
       this.router.navigate(['account'])
     })
   }
