@@ -12,9 +12,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class OrderComponent {
   @Input() tovars: data[] = []
-  constructor(private route: ActivatedRoute, private cors: CorsService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private cors: CorsService, private router: Router) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      console.log(document.getElementById('fieldset'));
+    }, 1);
+    
     if (!this.tovars.length) {
       const id = this.route.snapshot.queryParams['id']
       if (id) {
@@ -31,14 +35,18 @@ export class OrderComponent {
   goTovar(id: number) {
     this.router.navigate(['catalog', id])
   }
-  email: string = ""
+  email = ""
   addres = ""
   tel = ""
+  sposob = "Почта России"
   oformit() {
-    this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel).subscribe(el => {
+    this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob).subscribe(el => {
       console.log(el);
       this.router.navigate(['account'])
     })
+  }
+  changeSposob(d: any) {
+    this.sposob = d
   }
 }
 
