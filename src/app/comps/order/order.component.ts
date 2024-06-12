@@ -31,11 +31,11 @@ export class OrderComponent {
   goTovar(id: number) {
     this.router.navigate(['catalog', id])
   }
-  email: string = "els.dima@mail.ru"
+  email: string = ""
   addres = ""
   tel = ""
   oformit() {
-    this.cors.createOrder(this.tovars.map(el => el.id), this.email).subscribe(el => {
+    this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel).subscribe(el => {
       console.log(el);
       this.router.navigate(['account'])
     })
