@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CorsService } from '../../services/cors.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })
@@ -30,8 +31,11 @@ export class OrderComponent {
   goTovar(id: number) {
     this.router.navigate(['catalog', id])
   }
+  email: string = "els.dima@mail.ru"
+  addres = ""
+  tel = ""
   oformit() {
-    this.cors.createOrder(this.tovars.map(el => el.id)).subscribe(el => {
+    this.cors.createOrder(this.tovars.map(el => el.id), this.email).subscribe(el => {
       console.log(el);
       this.router.navigate(['account'])
     })

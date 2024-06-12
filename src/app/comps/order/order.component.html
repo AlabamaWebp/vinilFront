@@ -16,6 +16,8 @@
         }
         <div>
             <input type="text" placeholder="Адрес" class="w100">
+            <input type="email" placeholder="Email" class="w100" [(ngModel)]="email">
+            <input type="text" placeholder="Адрес" class="w100">
             <div class="margin">
                 <input type="checkbox" id="s" (change)="soglasie = !soglasie">
                 <label for="s">Я согласен(а) на обработку персоналных данных</label>
