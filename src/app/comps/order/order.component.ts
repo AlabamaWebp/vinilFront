@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class OrderComponent {
   @Input() tovars: data[] = []
+  @Input() del = false
   constructor(private route: ActivatedRoute, private cors: CorsService, private router: Router) { }
 
   ngOnInit() {
@@ -41,7 +42,7 @@ export class OrderComponent {
   sposob = "Почта России"
   oformit() {
     console.log(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob);
-    this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob).subscribe(el => {
+    this.cors.createOrder(this.tovars.map(el => el.id), this.email, this.addres, this.tel, this.sposob, this.del).subscribe(el => {
       this.router.navigate(['account'])
     })
   }

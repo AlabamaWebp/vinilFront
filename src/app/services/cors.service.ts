@@ -64,8 +64,8 @@ export class CorsService {
     return this.http.post<any>(`${this.apiUrl}/database/deleteOrderByStatus/`, data1).pipe(catchError(this.handleError));
   }
 
-  createOrder(ids: number[], mail: string, addres: string, tel: string, sposob: string): Observable<any> {
-    const data1 = { login: this.login, id: ids, mail: mail, addres: addres, tel: tel, sposob: sposob }
+  createOrder(ids: number[], mail: string, addres: string, tel: string, sposob: string, del = false): Observable<any> {
+    const data1 = { login: this.login, id: ids, mail: mail, addres: addres, tel: tel, sposob: sposob, del: del }
     console.log(JSON.stringify(data1));
     return this.http.post<any>(`${this.apiUrl}/database/createOrder/`, data1).pipe(catchError(this.handleError));
   }
